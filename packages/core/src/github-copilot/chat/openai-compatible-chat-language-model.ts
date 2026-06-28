@@ -545,7 +545,7 @@ export class OpenAICompatibleChatLanguageModel implements LanguageModelV3 {
                     })
                   }
 
-                  if (toolCallDelta.function?.name == null) {
+                  if (typeof toolCallDelta.function?.name !== "string") {
                     throw new InvalidResponseDataError({
                       data: toolCallDelta,
                       message: `Expected 'function.name' to be a string.`,
